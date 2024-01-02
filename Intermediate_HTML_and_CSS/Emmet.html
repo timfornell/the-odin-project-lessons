@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Import table style -->
+   <link href="minimal-table.css" rel="stylesheet" type="text/css">
+   <title>Document</title>
+</head>
+<body>
+   <h1>Intermediate HTML and CSS course</h1>
+   <p>This document contains answers and notes for the different lessons in the <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/intermediate-html-and-css">Intermediate HTML and CSS</a> course on <a href="https://www.theodinproject.com">The Odin Project</a> web page. Why use HTML and not Markdown you might ask? Simply because it provides a good opportunity to test anything that is taught in the course directly.</p>
+   <h2>Emmet abbreviation   </h2>
+   <p>The links below contains information about the Emmet tool:
+      <li><a href="https://docs.emmet.io/cheat-sheet/">Emmet cheat-sheet</a></li>
+      <li><a href="https://docs.emmet.io/">Emmet docs</a></li>
+      <li><a href="https://www.youtube.com/watch?v=V8vizNQKtx0">Quick Youtube tutorial</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML reference</a></li>
+      <li><a href="https://htmlcheatsheet.com/css/">CSS cheat-sheet</a></li>
+   </p>
+   <h3>Questions</h3>
+   <ol type="1">
+      <li class="question1">
+         One should use Emmet since it is a useful tool, that once learned can increase the speed at which one can generate HTML code.
+      </li>
+      <li class="question2">
+         The useful abbreviations can be found in the cheat-sheet.
+      </li>
+      <li class="question3">
+         The syntax to generate a paragraph with the class "test" is: 'p.text'
+      </li>
+      <li class="question4">
+         This syntax that generates an element with a child inside of it is: 'div>p' or simply '>p'. Since '>' is used to indicate a child of the former.
+      </li>
+      <li class="question5">
+         To iteratively create stuff, one can use the sign '*'. So, three elements with the same class name can be created like this: '.class-name*3'
+      </li>
+   </ol>
+   <h1>Scalable Vector Graphics - SVG</h1>
+   <p>
+      The code below is intended to illustrate how to generate an SVG file using HTML code.
+   </p>
+   <div class="container">
+      <!-- Specify which dialect of XML to use and specify the viewbox (x % y offset, scale, and something else) -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+         <!-- Functions from the SVG namespace that enables drawing -->
+         <rect x=0 y=0 width=100 height=100 fill="burlywood" />
+         <path d="M 10 10 H 90 V 90 L 10 60" fill="transparent" stroke="black" stroke-width="3" />
+         <circle cx=50 cy=50 r=20 class="svg-circle" />
+         <g class="svg-text-group">
+            <text x="20" y="25" rotate="10" id="hello-text">Hello!</text>
+            <use href="#hello-text" x="-10" y="65" fill="white" />
+         </g>
+      </svg>
+   </div>
+   <h3>Questions</h3>
+   <ol type="1">
+      <li class="question1">The attribute 'xmlns' defines which dialect of XML to use</li>
+      <li class="question2">SVG is not suitable if the image can't easily be represented by mathematical expressions or shapes</li>
+      <li class="question3">Inlining SVGs makes it possible to access the elements of the image. It can however, for large image and complex SVGs, cause long loading times and cache issues.</li>
+   </ol>
+   <h2>Tables</h2>
+   <p>A simple table:</p>
+   <table>
+      <tr>
+         <th>Column 1 header</th>
+         <th>Column 2 header</th>
+      </tr>
+      <tr>
+         <td>Column 1 element</td>
+         <td>Column 2 element</td>
+      </tr>
+   </table>
+   <p>The task for lesson was to read the following two links:</p>
+   <ol type="1">
+      <li>
+         <p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">Basics</a></p>
+            <p>
+               The main takeaway here is that, to make table useful and readable, one should use CSS to style them. It also introduces the basics of a table: <i>'th'</i>, <i>'tr'</i>, and <i>'td'</i>. Along with how to structure a layout so that cells can span multiple columns and rows by using <i>colspan</i> and <i>rowspan</i>. It finishes off with explaining how the <i>col</i> and <i>colgroup</i> keywords work. The table below contains examples for all of this.
+            </p>
+            <table>
+               <colgroup>
+                  <!--
+                     This does not appear to work when importing the style from a css file.
+                     If the import at the top of the file is commented out, the color will appear.
+                  -->
+                  <col span="1">
+                  <col style="background-color: chocolate;">
+               </colgroup>
+               <tr>
+                  <th colspan="2">Animals</th>
+               </tr>
+               <tr>
+                  <th colspan="2">Hippopotamus</th>
+               </tr>
+               <tr>
+                  <th rowspan="2">Horse</th>
+                  <td>Mare</td>
+               </tr>
+               <tr><td>Stallion</td></tr>
+               <tr>
+                  <th colspan="2">Crocodile</th>
+               </tr>
+               <tr>
+                  <th rowspan="2">Chicken</th>
+                  <td>Hen</td>
+               </tr>
+               <tr><td>Rooster</td></tr>
+            </table>
+         </p>
+      </li>
+      <li>
+         <p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced">Advanced</a></p>
+         <ul>
+            <li><b>caption</b>: contains a description of the table content</li>
+            <p>
+               <table>
+                  <caption>A time table for language classes</caption>
+                  <colgroup>
+                     <col span="2">
+                     <col style="background-color:#97DB9A;">
+                     <col style="width:42px;">
+                     <col style="background-color:#97DB9A;">
+                     <col style="background-color:#DCC48E; border:4px solid #C1437A;">
+                     <col span="2" style="width:42px;">
+                  </colgroup>
+                  <tr>
+                     <td>&nbsp;</td>
+                     <th>Mon</th>
+                     <th>Tues</th>
+                     <th>Wed</th>
+                     <th>Thurs</th>
+                     <th>Fri</th>
+                     <th>Sat</th>
+                     <th>Sun</th>
+                  </tr>
+                  <tr>
+                     <th>1st period</th>
+                     <td>English</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                     <td>German</td>
+                     <td>Dutch</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                     <th>2nd period</th>
+                     <td>English</td>
+                     <td>English</td>
+                     <td>&nbsp;</td>
+                     <td>German</td>
+                     <td>Dutch</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                     <th>3rd period</th>
+                     <td>&nbsp;</td>
+                     <td>German</td>
+                     <td>&nbsp;</td>
+                     <td>German</td>
+                     <td>Dutch</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                     <th>4th period</th>
+                     <td>&nbsp;</td>
+                     <td>English</td>
+                     <td>&nbsp;</td>
+                     <td>English</td>
+                     <td>Dutch</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                  </tr>
+                  </table>
+               </p>
+            <li><b>thead</b>, <b>tfoot</b> & <b>tbody</b>: very useful for styling and layout as it makes the grouping a lot easier to follow. One can also specify styling that applies to the entirety of each group</li>
+               <p>
+                  <table>
+                  <caption>How I chose to spend my money</caption>
+                     <thead>
+                        <th>Purchase</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Evaluation</th>
+                        <th>Cost (€)</th>
+                     </thead>
+                     <tfoot>
+                        <td colspan="4">SUM</td>
+                        <td>118</td>
+                     </tfoot>
+                     <tbody>
+                        <tr>
+                           <td>Haircut</td>
+                           <td>Hairdresser</td>
+                           <td>12/09</td>
+                           <td>Great idea</td>
+                           <td>30</td>
+                        </tr>
+                        <tr>
+                           <td>Lasagna</td>
+                           <td>Restaurant</td>
+                           <td>12/09</td>
+                           <td>Regrets</td>
+                           <td>18</td>
+                        </tr>
+                        <tr>
+                           <td>Shoes</td>
+                           <td>Shoeshop</td>
+                           <td>13/09</td>
+                           <td>Big regrets</td>
+                           <td>65</td>
+                        </tr>
+                        <tr>
+                           <td>Toothpaste</td>
+                           <td>Supermarket</td>
+                           <td>13/09</td>
+                           <td>Good</td>
+                           <td>5</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </p>
+               <li>The <b>scope</b> attribute: can be used to specify if a header is a header for a row or column (or both).</li>
+               <li>
+                  <p>
+                     The <b>id</b> and <b>headers</b> attributes: assign a <i>th</i> element a unique <b>id</b> which can be used by <i>td</i> elements to refer to relevant headers by a space separated list of ids. Note: this and scope does not produce any visual effects.
+                  </p>
+                  <table>
+                     <thead>
+                        <tr>
+                           <th id="purchase">Purchase</th>
+                           <th id="location">Location</th>
+                           <th id="date">Date</th>
+                           <th id="evaluation">Evaluation</th>
+                           <th id="cost">Cost (€)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                           <th id="haircut">Haircut</th>
+                           <td headers="location haircut">Hairdresser</td>
+                           <td headers="date haircut">12/09</td>
+                           <td headers="evaluation haircut">Great idea</td>
+                           <td headers="cost haircut">30</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </li>
+            </ul>
+         </p>
+      </li>
+   </ol>
+   <p>And then to do the assessment in this link: <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Structuring_planet_data">assessment</a></p>
+   <h3>Questions</h3>
+   <ol>
+      <li>A structured set of data consisting of rows and columns.</li>
+      <li>
+         For three reasons:
+         <ol type="a">
+            <li>Reduces accessibility for screen readers (this can be improved by using 'scope' on table headers)</li>
+            <li>Produces an unnecessary amount of tags</li>
+            <li>Not automatically responsive, sizing of cells is dependent on content</li>
+         </ol>
+      </li>
+      <li>To give a caption to the table (that is visible on the page)</li>
+      <li>Used to specify if a header is a header for a row, column, or both</li>
+   </ol>
+</body>
+</html>
